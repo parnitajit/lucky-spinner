@@ -1,0 +1,26 @@
+spinBtn.addEventListener('click', () => {
+    let rotations = 5; // Full spins
+    let sectionCount = 4; // Number of sections in the spinner
+    let randomDegree = Math.floor(Math.random() * sectionCount) * 90; // Randomly pick a section
+    let totalRotation = rotations * 360 + randomDegree;
+
+    spinner.style.transition = 'transform 4s cubic-bezier(0.33, 1, 0.68, 1)';
+    spinner.style.transform = `rotate(${totalRotation}deg)`;
+
+    setTimeout(() => {
+        switch(randomDegree) {
+            case 0:
+                result.textContent = 'Better Luck';
+                break;
+            case 90:
+                result.textContent = 'Water Filter';
+                break;
+            case 180:
+                result.textContent = 'Laptop';
+                break;
+            case 270:
+                result.textContent = 'iPhone';
+                break;
+        }
+    }, 4000);
+});
